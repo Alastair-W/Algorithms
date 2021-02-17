@@ -117,3 +117,9 @@ console.log(swap(newJ));
 // challenges, do this without using any built-in array methods.
 
 // Second: Solve this without using any nested loops.
+console.log('-'.repeat(50));
+console.log('Algo 6');
+
+function duplicates(k){
+    
+}
