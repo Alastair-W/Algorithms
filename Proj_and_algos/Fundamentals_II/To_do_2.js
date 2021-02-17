@@ -171,19 +171,19 @@ console.log('Algo 7');
 function clock(k){
     let secRemain = k%3600;
     // Hour
-    let hourDeg = ((k/3600)%24)*30;
+    let hourDeg = Math.floor(((k/3600)%24)*30);
     let hour = Math.floor(hourDeg/30);
     // Minutes
-    let minDeg = (secRemain/60)*6;
+    let minDeg = Math.floor((secRemain/60)*6);
     let min = Math.floor(minDeg/6);
     // Seconds
-    let secsDeg = ((secRemain%60)/60)*360;
-    let secs = secRemain%60
+    let secsDeg = Math.floor(((secRemain%60)/60)*360);
+    let secs = Math.floor(secRemain%60)
     console.log(hour+':'+min+':'+secs);
     console.log(`Hour: `+hourDeg+` degs , Min: `+minDeg+` degs , Secs: `+secsDeg+` degs`);
 }
 
-clock(119730);
+clock(119730.233);
 
 // Is Prime
 // Return whether a given integer is prime. Prime numbers are only evenly divisible 
