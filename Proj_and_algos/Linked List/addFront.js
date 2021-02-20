@@ -29,6 +29,17 @@ class SLL {
             this.head = this.head.next;
         }
     }
+
+    removeBack(){
+        let currentNode = this.head;
+        while(currentNode){
+            if(currentNode.next.next === null){
+                currentNode.next = null
+            }
+            currentNode = currentNode.next
+        }
+        console.log(this.displayList());
+    }
     
     front(){
         if(this.head){
@@ -45,8 +56,8 @@ class SLL {
                 currNode.next = newNode;
             }
             currNode = currNode.next;
-            
         }
+        return this
     }
 
     contains(value){
@@ -83,7 +94,7 @@ class SLL {
     }
 
     avgVal(){
-        var currentNode = this.head;
+        let currentNode = this.head;
         let totalVal = 0;
         let counter = 0;
         while(currentNode){
@@ -95,12 +106,22 @@ class SLL {
         console.log(`Average node value is ${averageVal}`);
     }
 
+    lastVal(){
+        let currentNode = this.head;
+        while(currentNode){
+            if(currentNode.next === null){
+                console.log(`Last value is ${currentNode.value}`);
+            }
+            currentNode = currentNode.next;
+        }
+        return this
+    }
 
     // a method for viewing all items in the list
     displayList(){
     // we will have to see all of the nodes..
     // starting from the beginning of the list
-        var currentNode = this.head;
+        let currentNode = this.head;
         let listlen = 0;
     // as long as currentNode exists or is not NULL
         while(currentNode){
@@ -121,3 +142,5 @@ console.log(newList.contains(25));
 newList.maxVal();
 newList.minVal();
 newList.avgVal();
+newList.lastVal();
+newList.removeBack();
