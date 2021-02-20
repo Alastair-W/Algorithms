@@ -60,6 +60,42 @@ class SLL {
         return false;
     }
 
+    maxVal(){
+        var currentNode = this.head;
+        let maxVal = this.head.value;
+        while(currentNode){
+            if(currentNode.value > maxVal){
+            }
+            currentNode = currentNode.next
+        }
+        console.log(`Maximum Value in list is ${maxVal}`);
+    }
+
+    minVal(){
+        var currentNode = this.head;
+        let minVal = this.head.value;
+        while(currentNode){
+            if(currentNode.value < minVal){
+            }
+            currentNode = currentNode.next
+        }
+        console.log(`Maximum Value in list is ${minVal}`);
+    }
+
+    avgVal(){
+        var currentNode = this.head;
+        let totalVal = 0;
+        let counter = 0;
+        while(currentNode){
+            totalVal += currentNode.value;
+            counter++;
+            currentNode = currentNode.next;
+        }
+        let averageVal = totalVal/counter;
+        console.log(`Average node value is ${averageVal}`);
+    }
+
+
     // a method for viewing all items in the list
     displayList(){
     // we will have to see all of the nodes..
@@ -79,4 +115,9 @@ class SLL {
 let newList = new SLL('Test');
 newList.addFront(7);
 newList.addFront(13);
+newList.addFront(10).addFront(25);
 newList.displayList('Test');
+console.log(newList.contains(25));
+newList.maxVal();
+newList.minVal();
+newList.avgVal();
