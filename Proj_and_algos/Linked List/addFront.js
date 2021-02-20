@@ -35,18 +35,48 @@ class SLL {
             return(this.head.value);
         }
         return null;
+    }
 
+    addBack(value){
+        let currNode = this.head
+        while(currNode.next){
+            if(currNode.next === null){
+                let newNode = new Node(value);
+                currNode.next = newNode;
+            }
+            currNode = currNode.next;
+            
+        }
+    }
+
+    contains(value){
+        let currNode = this.head
+        while(currNode){
+            if(currNode.value === value){
+                return true;
+            }
+            currNode = currNode.next;
+        }
+        return false;
+    }
+
+    // a method for viewing all items in the list
+    displayList(){
+    // we will have to see all of the nodes..
+    // starting from the beginning of the list
+        var currentNode = this.head;
+        let listlen = 0;
+    // as long as currentNode exists or is not NULL
+        while(currentNode){
+            console.log(`current node's value is ${currentNode.value}`);
+            currentNode = currentNode.next
+            listlen += 1;
+        }
+        console.log(`List length is ${listlen}`);
     }
 }
 
-    // a method for viewing all items in the list
-    view() {
-        // we will have to see all of the nodes..
-        // starting from the beginning of the list
-        var currentNode = this.head;
-        // as long as currentNode exists or is not NULL
-        while(currentNode){
-            console.log(`current node's value is ${currentNode.value}`)
-            currentNode = currentNode.next
-        }
-    }
+let newList = new SLL('Test');
+newList.addFront(7);
+newList.addFront(13);
+newList.displayList('Test');
