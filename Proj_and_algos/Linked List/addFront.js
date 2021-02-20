@@ -51,12 +51,10 @@ class SLL {
     addBack(value){
         let currNode = this.head
         while(currNode.next){
-            if(currNode.next === null){
-                let newNode = new Node(value);
-                currNode.next = newNode;
-            }
             currNode = currNode.next;
         }
+        let newNode = new Node(value);
+        currNode.next = newNode;
         return this
     }
 
@@ -144,3 +142,4 @@ newList.minVal();
 newList.avgVal();
 newList.lastVal();
 newList.removeBack();
+newList.addBack(66).displayList();
