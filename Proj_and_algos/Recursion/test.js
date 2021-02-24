@@ -16,11 +16,9 @@ let testG = 123;
 let letters = [];
 let strG = String(testG);
 for(digit in strG){
-    // console.log(testF[parseInt(strG[digit])]);
     for(i in testF[parseInt(strG[digit])]){
         letters.push(testF[parseInt(strG[digit])][i]);
-    }
-        
+    }      
 }
 
 console.log(letters);
