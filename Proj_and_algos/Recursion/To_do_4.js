@@ -90,3 +90,4 @@ console.log(collatz(posNum));
 // including “vitamic” and “titania”.
 console.log('-'.repeat(50));
 console.log('Algo 2');
+
