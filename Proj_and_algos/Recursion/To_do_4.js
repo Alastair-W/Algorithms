@@ -89,5 +89,59 @@ console.log(collatz(posNum));
 // For example, given a phone number 818-2612, return an array of 243 different strings, 
 // including “vitamic” and “titania”.
 console.log('-'.repeat(50));
-console.log('Algo 2');
+console.log('Algo 3');
 
+
+function get_words(testF, testG){
+    let letters = [];
+    let strG = String(testG);
+    for(digit in strG){
+        letters.push(testF[strG[digit]]);          
+    }
+    console.log(letters);
+
+    let progress = 0;
+    let current_word = '';
+    let limit = strG.length;
+    let found_words = [];
+
+    let return_value = telWords(letters, progress, current_word, limit, found_words);
+    console.log(return_value);
+}
+
+function telWords(letters, progress, current_word, limit, found_words){
+    
+    // complete word, add to collection (found_words) and return
+    if(progress == limit){
+        found_words.push(current_word);
+    }
+    else{
+    // make recursive call for each letter in current digit
+        for(i in letters[progress]){
+            let next_word = current_word + letters[progress][i];
+            console.log(next_word);
+
+            telWords(letters, progress+1, next_word, limit, found_words)
+        }
+    }
+
+    return found_words
+}
+    
+
+let testF = {
+                0: ['O'],
+                1: ['I'], 
+                2: ['A','B','C'], 
+                3: ['D','E','F'],
+                4: ['G','H','I'],
+                5: ['J','K','L'],
+                6: ['M','N','O'],
+                7: ['P','Q','R','S'],
+                8: ['T','U','V'],
+                9: ['W','X','Y','Z']
+            }
+
+let testG = 8182612;
+
+console.log(get_words(testF, testG));
