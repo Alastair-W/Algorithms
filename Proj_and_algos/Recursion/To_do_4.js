@@ -119,8 +119,8 @@ function telWords(letters, progress, current_word, limit, found_words){
     // make recursive call for each letter in current digit
         for(i in letters[progress]){
             let next_word = current_word + letters[progress][i];
+            console.log(progress, i);
             console.log(next_word);
-
             telWords(letters, progress+1, next_word, limit, found_words)
         }
     }
