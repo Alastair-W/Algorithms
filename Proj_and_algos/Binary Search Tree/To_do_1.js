@@ -37,7 +37,7 @@ class BST {
                 }
             }
         }
-        this.root = new BTNode(value);1
+        this.root = new BTNode(value);
         return this
     }
 
@@ -123,8 +123,39 @@ class BST {
         return heightCount(currentNode);
     }
 
+    balanced(sortedArray){
+        function sortedArrayToBST(sortedArray){
+            //the way this works is by taking the value at the middle index of the sorted array, adding that to the BTS and then
+            //repeating this recursively for the remaining values in the array either side of the middle index
+            //base cases
+            if(sortedArray.length === 1){
+                return new BTNode(sortedArray[0]);
+            } 
+            if(sortedArray.length === 0){
+                return null;
+            } 
+            
+            //create the root node using the middle value in the sorted array
+            let midValue = Math.floor(sortedArray.length/2);    
+            let currentNode = new BTNode(sortedArray[midValue]);
+            
+            //set left node to center of left subtree
+            let leftSubtree = sortedArray.slice(0,midValue);
+            currentNode.left = sortedArrayToBST(leftSubtree);
+            
+            //set right node to center of right subtree
+            let rightSubtree = sortedArray.slice(midValue+1,sortedArray.length);
+            currentNode.right = sortedArrayToBST(rightSubtree);
+            
+            return currentNode;
+        }
+        return sortedArrayToBST(sortedArray)
+    }
+    
     
 }
+
+
 
 let newBST = new BST('Test');
 newBST.add(7).add(3).add(17);
@@ -136,3 +167,11 @@ console.log(newBST.size());
 console.log(newBST.isEmpty());
 newBST.add(11);
 console.log(newBST.height());
+
+let testBST = new BST('TestTwo');
+let sortedArray = [2,3,5,7,13,17,37]
+console.log(testBST.balanced(sortedArray));
+testBST.add(50);
+console.log(testBST.root.value);
+
+
