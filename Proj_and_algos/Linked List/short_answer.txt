@@ -47,7 +47,7 @@ What is an object?
  - It is the container that holds the value and the pointer to the next item in list
 
  What are attributes of a singly linked list node? Do SLNodes always have only two attributes?
- - yes, expect the last item in list which has null for the the pointer value
+ - No, there could be more than two but no less (pointer and then as many values as you want)
 
  How would you determine whether an SList is empty?
  - if there is no head node
