@@ -124,6 +124,7 @@ class BST {
     }
 
     balanced(sortedArray){
+        let startNode = this.root;
         function sortedArrayToBST(sortedArray){
             //the way this works is by taking the value at the middle index of the sorted array, adding that to the BTS and then
             //repeating this recursively for the remaining values in the array either side of the middle index
@@ -135,9 +136,14 @@ class BST {
                 return null;
             } 
             
+            
+
             //create the root node using the middle value in the sorted array
             let midValue = Math.floor(sortedArray.length/2);    
             let currentNode = new BTNode(sortedArray[midValue]);
+            console.log('Mid Value: '+sortedArray[midValue]);
+            // this.root = currentNode;
+
             
             //set left node to center of left subtree
             let leftSubtree = sortedArray.slice(0,midValue);
@@ -167,11 +173,11 @@ console.log(newBST.size());
 console.log(newBST.isEmpty());
 newBST.add(11);
 console.log(newBST.height());
+console.log(newBST.root.value);
 
 let testBST = new BST('TestTwo');
 let sortedArray = [2,3,5,7,13,17,37]
 console.log(testBST.balanced(sortedArray));
-testBST.add(50);
 console.log(testBST.root.value);
 
 
