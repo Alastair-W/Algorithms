@@ -1,0 +1,74 @@
+What is an object?
+- an instance of a class
+
+ How is an object different than an associative array?
+ - They are the same?
+
+ Are local variables allocated in the memory heap or the call stack?
+ - memory heap
+
+ What is this so-called call stack, anyway?
+ - A call stack is a mechanism for an interpreter (like the JavaScript interpreter in a web browser) to keep track of its place in a script that calls multiple functions
+ 
+ And what is this memory heap. When do we use it?
+ - The heap is a memory used by programming languages to store global variables. 
+ 
+ What is the difference between a class and an object?
+ - a class is the blueprint that is used to create the object
+ 
+ What is an object constructor?
+ - A function to create instance of the class
+
+ What code is needed to create new object instances?
+ - ?
+ 
+ What is a pointer? Is this the same thing as the index of an array?
+ - There is no functional difference, they both provide a reference to an item in memory 
+ 
+ What is null? What would typeof tell us, if given null?
+ - false
+ 
+ What is a Singly Linked List (SList)?
+ - a data structure where each element holds two components, a value and the next item in the list
+ 
+ Generally, what are the attributes within a singly linked list?
+ - It has a value and a pointer to the next item in list
+ 
+ Why is it called a Singly Linked List?
+ - because it only has one pointer (DLL has previous and next)
+
+ Under what circumstances is an SList a better choice than an array?
+ - You don't need concurrent memory available for the whole list making it more efficient to store the list
+ 
+ What would typeof tell us, if given an SList?
+ - object
+
+ What is a Singly Linked List Node (SLNode)?
+ - It is the container that holds the value and the pointer to the next item in list
+
+ What are attributes of a singly linked list node? Do SLNodes always have only two attributes?
+ - yes, expect the last item in list which has null for the the pointer value
+
+ How would you determine whether an SList is empty?
+ - if there is no head node
+ 
+ What would typeof tell us, if given an SLNode?
+ - object
+
+ Are SList and SLNode objects built into JavaScript?
+ - No
+
+ What are the differences between a DList and an SList?
+ - See above
+
+ What are the differences between an SLNode and a DLNode?
+ - See above
+ 
+ Why might we use a DList instead of an SList?
+ - for a lot of querying (performance)
+
+ In JavaScript, what is the difference between alert() and prompt() and console.log()?
+ - prompt requests input, alert pushes a message to the browser
+ 
+ Personally, what do you do to make your code more understandable? Why do you do this?
+ - intuitive naming of variables and comments
