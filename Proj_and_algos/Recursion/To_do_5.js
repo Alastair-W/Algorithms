@@ -107,19 +107,26 @@ console.log('-'.repeat(50));
 console.log('Algo 4');
 
 
-function stepping(x, aList){
-    for(let i = 0; i<2; i++){
-        console.log(i);
-        if(x > 0){
-            aList.push(1)
-            x-=1
-            console.log(aList)
-            stepping(x, aList)
-        }
+function climbSetUp(steps){
+    let options = []
+    stepping(steps, options)
+    return options
+}
+
+function stepping(steps, options){
+    console.log('Steps: '+steps)
+    console.log('Options: '+options)
+    let climb = []
+    if(steps == 0){
+        options.push(climb)
+        return climb
     }
-    return aList
+    for(let item = 1; item<3; item++){
+        climb.push(item)
+        steps-=item
+        stepping(steps, options)
+    }
 }
 
 let testx = 4
-let mainList = []
-console.log(stepping(testx, mainList))
+console.log(climbSetUp(testx))

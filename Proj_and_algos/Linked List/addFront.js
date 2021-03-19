@@ -62,7 +62,8 @@ class SLL {
         let currNode = this.head
         while(currNode){
             if(currNode.value === value){
-                return true;
+                console.log(currNode)
+                return currNode;
             }
             currNode = currNode.next;
         }
@@ -129,6 +130,60 @@ class SLL {
         }
         console.log(`List length is ${listlen}`);
     }
+
+
+    prependVal(value, before){
+        // create new node
+        let newNode = new Node(value);
+        let currentNode = this.head
+        // console.log(currentNode.value)
+        while(currentNode.next){
+            console.log(currentNode.next.value)
+            if(currentNode.next.value === before){
+                console.log(currentNode.next)
+                newNode.next = currentNode.next
+                currentNode.next = newNode
+                return this 
+            }
+            currentNode = currentNode.next
+        }
+        this.addBack(value)
+        return this
+    }
+    
+    appendVal(value, after){
+        // create new node
+        let newNode = new Node(value);
+        let currentNode = this.head
+        // console.log(currentNode.value)
+        while(currentNode.next){
+            console.log(currentNode.value)
+            if(currentNode.value === after){
+                console.log(currentNode.value)
+                newNode.next = currentNode.next
+                currentNode.next = newNode
+                return this 
+            }
+            currentNode = currentNode.next
+        }
+        this.addBack(value)
+        return this
+    }
+
+    removeVal(value){
+        let currNode = this.head
+        while(currNode.next){
+            if(currNode.next.value == value){
+                currNode.next = currNode.next.next
+                // currNode.next = null
+                return this
+            }
+            currNode = currNode.next
+        }
+        console.log('Value not in list')
+        return this
+    }
+
 }
 
 let newList = new SLL('Test');
@@ -143,3 +198,11 @@ newList.avgVal();
 newList.lastVal();
 newList.removeBack();
 newList.addBack(66).displayList();
+newList.contains(13);
+newList.prependVal(14,13).displayList();
+newList.prependVal(22,19).displayList();
+newList.prependVal(77,10).displayList();
+newList.appendVal(17,10).displayList();
+newList.appendVal(17,100).displayList();
+newList.removeVal(17).displayList();
+newList.removeVal(117).displayList();
