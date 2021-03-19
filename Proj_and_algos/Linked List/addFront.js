@@ -184,6 +184,34 @@ class SLL {
         return this
     }
 
+    minToFront(){
+        let currentNode = this.head;
+        let minVal = this.head.value;
+        while(currentNode){
+            if(currentNode.value < minVal){
+                minVal = currentNode.value
+            }
+            currentNode = currentNode.next
+        }
+        if(this.head.value === minVal){
+            return this
+        }
+        else{
+            currentNode = this.head.next
+            while(currentNode){
+                if(currentNode.next.value === minVal){
+                    let tempNext = currentNode.next.next
+                    currentNode.next.next = this.head
+                    this.head = currentNode.next
+                    currentNode.next = tempNext                 
+                    return this
+                }
+                currentNode = currentNode.next
+            }
+        }
+        return this
+    }
+
 }
 
 let newList = new SLL('Test');
@@ -206,3 +234,4 @@ newList.appendVal(17,10).displayList();
 newList.appendVal(17,100).displayList();
 newList.removeVal(17).displayList();
 newList.removeVal(117).displayList();
+newList.minToFront().displayList();
