@@ -37,8 +37,7 @@ class BST {
                 }
             }
         }
-        this.root = new BTNode(value);
-        console.log('New node added');
+        this.root = new BTNode(value);1
         return this
     }
 
@@ -112,6 +111,19 @@ class BST {
             return 'Not Empty'
         }
     }
+
+    height(){
+        let currentNode = this.root;
+        function heightCount(currentNode){
+            if(!currentNode){
+                return 0
+            }
+            return Math.max(heightCount(currentNode.left), heightCount(currentNode.right))+1;
+        }
+        return heightCount(currentNode);
+    }
+
+    
 }
 
 let newBST = new BST('Test');
@@ -122,3 +134,5 @@ newBST.add(37).add(13).add(2);
 newBST.min().max();
 console.log(newBST.size());
 console.log(newBST.isEmpty());
+newBST.add(11);
+console.log(newBST.height());
