@@ -124,13 +124,12 @@ class BST {
     }
 
     balanced(sortedArray){
-        let startNode = this.root;
         function sortedArrayToBST(sortedArray){
             //the way this works is by taking the value at the middle index of the sorted array, adding that to the BTS and then
             //repeating this recursively for the remaining values in the array either side of the middle index
             //base cases
             if(sortedArray.length === 1){
-                return new BTNode(sortedArray[0]);
+                return sortedArray[0];
             } 
             if(sortedArray.length === 0){
                 return null;
@@ -155,7 +154,8 @@ class BST {
             
             return currentNode;
         }
-        return sortedArrayToBST(sortedArray)
+        this.root = sortedArrayToBST(sortedArray)
+        return this.root
     }
     
     
@@ -173,7 +173,7 @@ console.log(newBST.size());
 console.log(newBST.isEmpty());
 newBST.add(11);
 console.log(newBST.height());
-console.log(newBST.root.value);
+console.log('Root: '+newBST.root.value);
 
 let testBST = new BST('TestTwo');
 let sortedArray = [2,3,5,7,13,17,37]
